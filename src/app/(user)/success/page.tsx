@@ -8,7 +8,7 @@ export default function SuccessPage() {
             {/*Blurred Background Layer*/}
             <div className="absolute inset-0 z-0" aria-hidden="true">
                 <Image 
-                    src="/images/bg.png" 
+                    src="/images/bg.webp" 
                     alt="Maybelline Boba Boost Blurred BG"
                     fill
                     className="object-cover blur-3xl opacity-100 scale-110"
@@ -19,7 +19,7 @@ export default function SuccessPage() {
                 {/*bg*/}
                 <div className="absolute inset-0 -z-10" aria-hidden="true">
                     <Image
-                        src="/images/p5_bg.png" 
+                        src="/images/p5_bg.webp" 
                         alt="Maybelline Boba Boost"
                         fill
                         priority
@@ -41,7 +41,7 @@ export default function SuccessPage() {
                         ].join(" ")}
                     >
                         <Image
-                            src="/images/btn_home.png"
+                            src="/images/btn_home.webp"
                             alt="Home Button"
                             width={232.69}
                             height={63.68}

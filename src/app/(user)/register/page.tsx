@@ -87,7 +87,7 @@ function RegisterPageInner() {
             {/*Blurred Background Layer*/}
             <div className="absolute inset-0 z-0" aria-hidden="true">
                 <Image
-                    src="/images/bg.png" 
+                    src="/images/bg.webp" 
                     alt="Maybelline Boba Boost Blurred BG"
                     fill
                     className="object-cover blur-3xl opacity-100 scale-110"
@@ -98,7 +98,7 @@ function RegisterPageInner() {
                 {/*bg*/}
                 <div className="absolute inset-0 -z-10" aria-hidden="true">
                     <Image 
-                        src="/images/p4_bg.png" 
+                        src="/images/p4_bg.webp" 
                         alt="Maybelline Boba Boost"
                         fill
                         priority
@@ -186,7 +186,7 @@ function RegisterPageInner() {
                                 <div className="loading-spinner loading-spinner-inline" aria-label="Submitting registration" aria-busy="true" aria-live="polite">Loading...</div>
                             ) : (
                                 <Image
-                                    src="/images/btn_submit.png"
+                                    src="/images/btn_submit.webp"
                                     alt="Submit"
                                     width={232.69}
                                     height={63.68}

@@ -7,7 +7,7 @@ export default function LandingPage() {
             {/*Blurred Background Layer*/}
             <div className="absolute inset-0 z-0" aria-hidden="true">
                 <Image
-                    src="/images/bg.png" 
+                    src="/images/bg.webp" 
                     alt="Maybelline Boba Boost Blurred BG"
                     fill
                     className="object-cover blur-3xl opacity-100 scale-110"
@@ -18,7 +18,7 @@ export default function LandingPage() {
                 {/*bg*/}
                 <div className="absolute inset-0 -z-10" aria-hidden="true">
                     <Image 
-                        src="/images/p1_bg.png" 
+                        src="/images/p1_bg.webp" 
                         alt="Maybelline Boba Boost"
                         fill
                         priority
@@ -40,7 +40,7 @@ export default function LandingPage() {
                         ].join(" ")}
                     >
                         <Image
-                            src="/images/btn_register.png"
+                            src="/images/btn_register.webp"
                             alt="Register Button"
                             width={269}
                             height={64}

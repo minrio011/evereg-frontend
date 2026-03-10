@@ -40,7 +40,7 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-2xl shadow-lg">
         <div className="flex justify-center">
           <Image
-            src="/images/maybeline_logo.png"
+            src="/images/maybeline_logo.webp"
             alt="Maybelline Logo"
             width={180}
             height={60}

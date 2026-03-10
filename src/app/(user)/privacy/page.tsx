@@ -11,7 +11,7 @@ export default function PrivacyPage() {
             {/*Blurred Background Layer*/}
             <div className="absolute inset-0 z-0" aria-hidden="true">
                 <Image
-                    src="/images/bg.png" 
+                    src="/images/bg.webp" 
                     alt="Maybelline Boba Boost Blurred BG"
                     fill
                     className="object-cover blur-3xl opacity-100 scale-110"
@@ -22,7 +22,7 @@ export default function PrivacyPage() {
                 {/*bg*/}
                 <div className="absolute inset-0 -z-10" aria-hidden="true">
                     <Image
-                        src="/images/p2_bg.png" 
+                        src="/images/p2_bg.webp" 
                         alt="Maybelline Boba Boost"
                         fill
                         priority
@@ -64,7 +64,7 @@ export default function PrivacyPage() {
                             ].join(" ")}
                         >
                             <Image
-                                src="/images/btn_accept.png"
+                                src="/images/btn_accept.webp"
                                 alt="ยอมรับและดำเนินการต่อ"
                                 width={232.69}
                                 height={63.68}
@@ -77,7 +77,7 @@ export default function PrivacyPage() {
                             className="block w-full opacity-40 cursor-not-allowed"
                         >
                             <Image
-                                src="/images/btn_accept.png"
+                                src="/images/btn_accept.webp"
                                 alt="ยอมรับและดำเนินการต่อ"
                                 width={232.69}
                                 height={63.68}

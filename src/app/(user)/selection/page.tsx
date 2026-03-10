@@ -3,9 +3,9 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 const BUTTONS = [
-    { id: "1", src: "/images/btn_winny_satang.png",    alt: "Winny-Satang", width: 170, height: 231 },
-    { id: "2", src: "/images/btn_almond_progress.png", alt: "Almond-Progress", width: 199, height: 231 },
-    { id: "3", src: "/images/btn_daou.png",            alt: "Daou", width: 170, height: 231 },
+    { id: "1", src: "/images/btn_winny_satang.webp",    alt: "Winny-Satang", width: 170, height: 231 },
+    { id: "2", src: "/images/btn_almond_progress.webp", alt: "Almond-Progress", width: 199, height: 231 },
+    { id: "3", src: "/images/btn_daou.webp",            alt: "Daou", width: 170, height: 231 },
 ];
 
 export default function SelectionPage() {
@@ -19,7 +19,7 @@ export default function SelectionPage() {
             {/*Blurred Background Layer*/}
             <div className="absolute inset-0 z-0" aria-hidden="true">
                 <Image 
-                    src="/images/bg.png" 
+                    src="/images/bg.webp" 
                     alt="Maybelline Boba Boost Blurred BG"
                     fill
                     className="object-cover blur-3xl opacity-100 scale-110"
@@ -30,7 +30,7 @@ export default function SelectionPage() {
                 {/*bg*/}
                 <div className="absolute inset-0 -z-10" aria-hidden="true">
                     <Image 
-                        src="/images/p3_bg.png" 
+                        src="/images/p3_bg.webp" 
                         alt="Maybelline Boba Boost"
                         fill
                         priority
