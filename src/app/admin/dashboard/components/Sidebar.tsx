@@ -16,7 +16,7 @@ export function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
       <aside className={`sidebar ${sidebarOpen ? "open" : ""}`}>
         <div className="px-4 py-6">
           <Image
-            src="/images/maybeline_logo.png"
+            src="/images/maybeline_logo.webp"
             alt="Maybelline Logo"
             width={120}
             height={40}
