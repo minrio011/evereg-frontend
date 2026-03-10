@@ -90,7 +90,6 @@ function RegisterPageInner() {
                     src="/images/bg.png" 
                     alt="Maybelline Boba Boost Blurred BG"
                     fill
-                    priority
                     className="object-cover blur-3xl opacity-100 scale-110"
                 />
             </div>
