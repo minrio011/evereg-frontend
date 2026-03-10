@@ -8,6 +8,38 @@ const getAuthHeaders = () => {
     };
 };
 
+const tryParseJson = (text: string) => {
+    try {
+        return JSON.parse(text);
+    } catch {
+        return null;
+    }
+};
+
+const getErrorMessageFromResponse = async (response: Response) => {
+    const text = await response.text().catch(() => '');
+    const contentType = response.headers.get('content-type') || '';
+
+    if (contentType.includes('application/json')) {
+        const parsed = tryParseJson(text);
+        if (parsed && typeof parsed === 'object' && 'message' in parsed && typeof (parsed as any).message === 'string') {
+            return (parsed as any).message as string;
+        }
+    }
+
+    return text || `Request failed (${response.status})`;
+};
+
+const parseJsonResponse = async (response: Response) => {
+    const text = await response.text().catch(() => '');
+    if (!text) return null;
+
+    const parsed = tryParseJson(text);
+    if (parsed !== null) return parsed;
+
+    throw new Error(text);
+};
+
 export const submitRegistration = async (data: any) => {
     const response = await fetch(`${API_URL}/campaign/register`, {
         method: 'POST',
@@ -18,11 +50,10 @@ export const submitRegistration = async (data: any) => {
     });
 
     if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Network response was not ok');
+        throw new Error(await getErrorMessageFromResponse(response));
     }
 
-    return response.json();
+    return parseJsonResponse(response);
 }
 
 export const getDashboardSummary = async () => {
@@ -32,10 +63,10 @@ export const getDashboardSummary = async () => {
     });
 
     if (!response.ok) {
-        throw new Error('Failed to fetch summary');
+        throw new Error(await getErrorMessageFromResponse(response));
     }
 
-    return response.json();
+    return parseJsonResponse(response);
 }
 
 export const getAllRegistrations = async (params: any) => {
@@ -46,10 +77,10 @@ export const getAllRegistrations = async (params: any) => {
     });
 
     if (!response.ok) {
-        throw new Error('Failed to fetch registrations');
+        throw new Error(await getErrorMessageFromResponse(response));
     }
 
-    return response.json();
+    return parseJsonResponse(response);
 }
 
 export const updateEligibility = async (id: number) => {
@@ -60,10 +91,10 @@ export const updateEligibility = async (id: number) => {
     });
 
     if (!response.ok) {
-        throw new Error('Failed to update eligibility');
+        throw new Error(await getErrorMessageFromResponse(response));
     }
 
-    return response.json();
+    return parseJsonResponse(response);
 }
 
 export const sendManualEmail = async (id: number) => {
@@ -74,10 +105,10 @@ export const sendManualEmail = async (id: number) => {
     });
 
     if (!response.ok) {
-        throw new Error('Failed to send email');
+        throw new Error(await getErrorMessageFromResponse(response));
     }
 
-    return response.json();
+    return parseJsonResponse(response);
 }
 
 export const exportRegistrations = async (params: any) => {
@@ -88,7 +119,7 @@ export const exportRegistrations = async (params: any) => {
     });
 
     if (!response.ok) {
-        throw new Error('Failed to export registrations');
+        throw new Error(await getErrorMessageFromResponse(response));
     }
 
     return response.blob();
