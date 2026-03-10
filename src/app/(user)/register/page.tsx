@@ -1,6 +1,6 @@
 'use client';
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import Image from "next/image";
 import { submitRegistration } from "@/services/campaign.service";
 
@@ -11,7 +11,7 @@ const INPUT_CLASS = [
     "focus:outline-none placeholder:text-black/40",
 ].join(" ");
 
-export default function RegisterPage() {
+function RegisterPageInner() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const eventId = searchParams.get("event");
@@ -184,9 +184,7 @@ export default function RegisterPage() {
                             ].join(" ")}
                         >
                             {isLoading ? (
-                                <div className="w-full h-[6vh] flex items-center justify-center">
-                                    <div className="w-6 h-6 border-2 border-black/30 border-t-black rounded-full animate-spin" />
-                                </div>
+                                <div className="loading-spinner loading-spinner-inline" aria-label="Submitting registration" aria-busy="true" aria-live="polite">Loading...</div>
                             ) : (
                                 <Image
                                     src="/images/btn_submit.png"
@@ -201,5 +199,13 @@ export default function RegisterPage() {
                 </form>
             </div>
         </main>
+    );
+}
+
+export default function RegisterPage() {
+    return (
+        <Suspense fallback={<div className="loading-spinner loading-spinner-fullscreen" aria-live="polite" aria-label="Loading registration form">Loading...</div>}>
+            <RegisterPageInner />
+        </Suspense>
     );
 }
